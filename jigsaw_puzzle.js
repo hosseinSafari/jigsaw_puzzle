@@ -34,7 +34,7 @@ function addButton(){
 			button.style.marginTop = "3.9px";
 			button.value = "b_"+i+j;
 			
-			//this 'if' is for last button, actully the last button or 'button of number 9' must not be visibility for moves other buttons.  
+			//This if statement makes button number 9 invisible. It should be invisible do that the other buttons could move.  
 			if(j<3 || i<3){
 				button.innerHTML = ++count;
 				button.style.background = "url(pictures/pic"+picCount+".jpg) no-repeat";
@@ -45,15 +45,11 @@ function addButton(){
 			}
 			button.style.color = "red";
 			
-			/*
-			if fontSize of buttons be a number except zero, number of button (count) will be appear.
-			becuse i use background image for buttons, and i don't want appear numbers of buttons.
-			i want to apear backgrouond image for buttons only.
-
-			*/			
+			//For making the buttons invisible
 			button.style.fontSize = "0px";
 			
-			//this function has deteced that, can it button move? if it be true, two of buttons change.
+			//This function detects whether the clicked button can move or not.
+			//If it is true then it'll be replaced with adjacent buttons.
 			button.onclick = function(){wichButtons(this)};
 			
 			document.getElementById('d'+i).appendChild(button);
@@ -61,7 +57,7 @@ function addButton(){
 			
 	}
 	
-//they variables has been assigned with buutons.	
+//Buttons created are stored in these variables for ease of access	
 b_11 = document.getElementById('b_11');
 b_12 = document.getElementById('b_12');
 b_13 = document.getElementById('b_13');
@@ -79,7 +75,7 @@ b_33 = document.getElementById('b_33');
 
 function wichButtons(btn){
 	
-	//if person click on button of number of 1.
+	//If button number 1 is selected (clicked).
 	if(btn.value === 'b_11')
 	{
 		if(b_12.innerText === '0')
@@ -97,15 +93,12 @@ function wichButtons(btn){
 			btn.innerHTML = 0;
 		}
 		
-		/*
-		this function checkes that, every button's number or (innerHTML) be '0', this opacity will be '100' (actually this button appears),
-		if be '100',this button nimber be '0' and disapears.
-		*/ 
+		//This function checks whether a number is 0 or not. If yes, they're disappeared.
 		isVisible();
 	}
 	
 	
-	//if person click on button of number of 2.
+	//If button number 2 is selected (clicked).
 	else if(btn.value === 'b_12')
 	{
 		if(b_11.innerText === '0')
@@ -134,7 +127,7 @@ function wichButtons(btn){
 	}
 	
 	
-	//if person click on button of number of 3.
+	//If button number 3 is selected (clicked).
 	else if(btn.value === 'b_13')
 	{
 		if(b_12.innerText === '0')
@@ -156,7 +149,7 @@ function wichButtons(btn){
 	}
 	
 	
-	//if person click on button of number of 4.
+	//If button number 4 is selected (clicked).
 	else if(btn.value === 'b_21')
 	{
 		if(b_11.innerText === '0')
@@ -185,7 +178,7 @@ function wichButtons(btn){
 	}
 	
 	
-	//if person click on button of number of 5.
+	//If button number 5 is selected (clicked).
 	else if(btn.value === 'b_22')
 	{
 		if(b_12.innerText === '0')
@@ -221,7 +214,7 @@ function wichButtons(btn){
 	}
 	
 	
-	//if person click on button of number of 6.
+	//If button number 6 is selected (clicked).
 	else if(btn.value === 'b_23')
 	{
 		if(b_13.innerText === '0')
@@ -250,7 +243,7 @@ function wichButtons(btn){
 	}
 	
 	
-	//if person click on button of number of 7.
+	//If button number 7 is selected (clicked).
 	else if(btn.value === 'b_31')
 	{
 		if(b_21.innerText === '0')
@@ -272,7 +265,7 @@ function wichButtons(btn){
 	}
 	
 	
-	//if person click on button of number of 8.
+	//If button number 8 is selected (clicked).
 	else if(btn.value === 'b_32')
 	{
 		if(b_22.innerText === '0')
@@ -301,7 +294,7 @@ function wichButtons(btn){
 	}
 	
 	
-	//if person click on button of number of 9.
+	//If button number 9 is selected (clicked).
 	else if(btn.value === 'b_33')
 	{
 		if(b_23.innerText === '0')
@@ -324,11 +317,8 @@ function wichButtons(btn){
 	}
 }
 
-/*
-this function checkes that, every button's number or (innerHTML) be '0', this opacity will be '100' (actually this button appears),
-if be '100',this button nimber be '0' and disapears.
-*/ 
-
+ 
+//This function checks whether a number is 0 or not. If yes, they're disappeared.
 function isVisible(){
 	
 	if(b_11.innerText === '0'){
